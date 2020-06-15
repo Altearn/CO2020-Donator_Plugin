@@ -1,6 +1,6 @@
 name: CreativeOlympics
 main: creativeolympics.Main
-version: 0.0.1
+version: 1.0
 description: Creative Olympics Plugin
 
 commands:

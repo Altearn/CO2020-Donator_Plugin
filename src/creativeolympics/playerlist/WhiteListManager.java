@@ -1,16 +1,20 @@
 package creativeolympics.playerlist;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
 public class WhiteListManager extends PlayerListManager {
 
-    public static final String URL = "https://files.gunivers.net/creative-olympics-whitelist.html";
+    // Config values
+    public static final String WHITELIST_UPDATE_INTERVAL = "whitelist-update-interval";
+    public static final String WHITELIST_URL = "whitelist-url";
 
     // Constructors ----------------------------------------------------------------------------------------------------
 
-    public WhiteListManager(Plugin plugin) { this(plugin, 60); }
-    public WhiteListManager(Plugin plugin, long intervalSeconds) { super(plugin, intervalSeconds, URL); }
+    public WhiteListManager(Plugin plugin, FileConfiguration config) {
+        super(plugin, config.getLong(WHITELIST_UPDATE_INTERVAL), config.getString(WHITELIST_URL));
+    }
 
     // Overridden methods ----------------------------------------------------------------------------------------------
 

@@ -1,0 +1,10 @@
+# Time interval in seconds between two updates of the white list
+# -1 to disable auto updates. You can use /updatewhitelist to update it manually
+whitelist-update-interval: 60
+# Time interval in seconds between two updates of the bans list
+# -1 to disable auto updates. You can use /updateblacklist to update it manually
+blacklist-update-interval: 60
+# URL of the file containing the list of white listed people
+whitelist-url: https://files.gunivers.net/creative-olympics-whitelist.html
+# URL of the file containing the list of banned people
+blacklist-url: https://files.gunivers.net/creative-olympics-ban.html

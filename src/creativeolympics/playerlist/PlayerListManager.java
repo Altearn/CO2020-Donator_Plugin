@@ -23,10 +23,6 @@ abstract class PlayerListManager implements CommandExecutor {
 
     // Constructors ----------------------------------------------------------------------------------------------------
 
-    protected PlayerListManager(Plugin plugin) { this(plugin, -1, ""); }
-    protected PlayerListManager(Plugin plugin, long intervalSeconds) { this(plugin, intervalSeconds, ""); }
-    protected PlayerListManager(Plugin plugin, String updatedListURL) { this(plugin, -1, updatedListURL); }
-
     protected PlayerListManager(Plugin plugin, long intervalSeconds, String updatedListURL) {
         this.plugin = plugin;
         this.updatedListURL = updatedListURL;
