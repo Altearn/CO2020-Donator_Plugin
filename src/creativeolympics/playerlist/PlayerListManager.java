@@ -116,8 +116,11 @@ abstract class PlayerListManager implements CommandExecutor {
     // Commands ---------------------------------------------------------------------------------------------------------
 
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        // Updates the ban list
+
+        if(!commandSender.isOp())
+            return false;
+
         update();
-        return false;
+        return true;
     }
 }

@@ -1,12 +1,12 @@
 name: CreativeOlympics
 main: creativeolympics.Main
-version: 1.0
+version: 1.0.0
 description: Creative Olympics Plugin
 
 commands:
   updatewhitelist:
     description: Updates the white list
-    usage: /updatewhitelist
+    usage: You must be an operator to use this command. Usage /updatewhitelist
   updateblacklist:
     description: Updates the bans list
-    usage: /updateblacklist
+    usage: You must be an operator to use this command. Usage /updateblacklist
