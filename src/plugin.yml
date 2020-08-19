@@ -2,6 +2,7 @@ name: CreativeOlympics
 main: creativeolympics.Main
 version: 1.0.0
 description: Creative Olympics Plugin
+api-version: '1.16'
 
 commands:
   updatewhitelist:

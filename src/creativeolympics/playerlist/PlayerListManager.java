@@ -1,5 +1,6 @@
 package creativeolympics.playerlist;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -87,6 +88,8 @@ abstract class PlayerListManager implements CommandExecutor {
             URL obj = new URL(updatedListURL);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
+            con.setConnectTimeout(20000);
+            con.setRequestProperty("User-Agent", "curl/7.54.1");
             int responseCode = con.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) { // success
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -95,9 +98,13 @@ abstract class PlayerListManager implements CommandExecutor {
                     response.append(buff);
                 in.close();
             }
-            else throw new Exception();
+            else {
+                plugin.getLogger().warning("Response code: " + responseCode);
+                throw new Exception("Wrong response code");
+            }
         } catch(Exception e) {
             plugin.getLogger().warning("Couldn't access resource at location: " + updatedListURL);
+            plugin.getLogger().warning("Cause: " + ExceptionUtils.getStackTrace(e));
             return null;
         }
 
